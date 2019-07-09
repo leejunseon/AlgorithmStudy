@@ -1,4 +1,4 @@
-/* httpsswexpertacademy.commaincodeproblemproblemDetail.docontestProbId=AV597vbqAH0DFAVl */
+/* https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV597vbqAH0DFAVl */
 import java.util.*;
 
 public class Solution {
