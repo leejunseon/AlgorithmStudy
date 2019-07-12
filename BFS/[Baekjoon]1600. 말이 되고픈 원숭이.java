@@ -1,4 +1,4 @@
-/* https://www.acmicpc.net/source/12733434 */
+/* https://www.acmicpc.net/problem/1600 */
 import java.util.*;
 
 public class Main {
