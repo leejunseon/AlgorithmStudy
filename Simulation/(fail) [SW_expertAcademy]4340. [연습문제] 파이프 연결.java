@@ -1,5 +1,5 @@
 /* https://swexpertacademy.com/main/code/problem/problemDetail.do */
-//시간초과발생. 탐색 과정에서 dp 적용방법 생각해볼 것.
+시간초과. 탐색과정에서 dp 적용할 수 있는지 검토할 것.
 
 import java.util.Scanner;
 
