@@ -1,5 +1,5 @@
 /* https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV15QRX6APsCFAYD&categoryId=AV15QRX6APsCFAYD&categoryType=CODE */
-//¿ì¼±¼øÀ§ Å¥ »ç¿ë
+//ìš°ì„ ìˆœìœ„í 
 
 import java.io.*;
 import java.util.*;
