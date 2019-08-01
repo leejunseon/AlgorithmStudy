@@ -1,4 +1,5 @@
 /* https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV7I5fgqEogDFAXB&categoryId=AV7I5fgqEogDFAXB&categoryType=CODE */
+//list.contains()를 썼을 땐 시간초과가 발생. HashSet으로 해결 (HashSet은 add할 때 자동으로 중복을 체크함)
 
 import java.io.*;
 import java.util.*;
