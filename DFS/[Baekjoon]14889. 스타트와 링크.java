@@ -35,7 +35,7 @@ public class Main {
 	public static int sub(int now,List<Integer> one) {
 		int result=max;
 		
-		if(one.size()==n/2) {//ÆÀ ´Ù Ã¡À¸¸é
+		if(one.size()==n/2) {// íŒ€ ë‹¤ 
 			int team1=calcStat(one);
 			List<Integer> two=new ArrayList<Integer>();
 			for(int i=1;i<=n;i++) {
