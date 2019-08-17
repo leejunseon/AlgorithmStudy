@@ -49,14 +49,14 @@ public class Main {
 		if(one.size()==0&&two.size()==0)
 			System.out.println(65536);
 		else {
-			//±³ÁıÇÕ
+			//êµì§‘í•©
 			List<String> a=new ArrayList<String>();
 			List<String> b=new ArrayList<String>();
 			a.addAll(one);
 			b.addAll(two);
 			a.retainAll(b);
 			int gyo=a.size();
-			//ÇÕÁıÇÕ
+			//í•©ì§‘í•©
 			for(String s:a) {
 				if(one.contains(s))
 					one.remove(s);
@@ -64,7 +64,7 @@ public class Main {
 					two.remove(s);
 			}
 			int hap=gyo+one.size()+two.size();
-			//°á°ú°ª
+			//
 			double result=(double)gyo/(double)hap;
 			System.out.println((int)Math.floor(result*65536));
 		}
