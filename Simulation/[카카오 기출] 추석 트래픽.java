@@ -1,4 +1,5 @@
 /* http://tech.kakao.com/2017/09/27/kakao-blind-recruitment-round-1/ */
+//시작점을 기준으로 정렬 -> 뒤에있는 것들과 비교하면서 count (기준점의 end ~ 기준점의 end+999 사이에 있는 것을 count)
 
 import java.util.*;
 import java.io.*;
@@ -9,7 +10,7 @@ public class Main {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		
-		StringTokenizer st=new StringTokenizer(br.readLine(),"[����,] s");
+		StringTokenizer st=new StringTokenizer(br.readLine(),"[¡°¡±,] s");
 		logs=new ArrayList<Log>();
 		while(st.hasMoreTokens()) {
 			int endTime=0;
