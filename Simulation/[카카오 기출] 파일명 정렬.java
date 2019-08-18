@@ -10,7 +10,7 @@ public class Main {
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		
-		st=new StringTokenizer(br.readLine(),"[¡°¡±,]");
+		st=new StringTokenizer(br.readLine(),"[â€œâ€,]");
 		files=new LinkedList<File>();
 		int count=0;
 		while(st.hasMoreTokens()) {
@@ -61,7 +61,7 @@ class File implements Comparable<File>{
 	String head;
 	String number;
 	String tail;
-	int count;//¾ÈÁ¤Á¤·ÄÀ» À§ÇÑ º¯¼ö
+	int count;//ì•ˆì •ì •ë ¬ì„ ìœ„í•œ ë³€ìˆ˜
 	File(String head,String number,String tail,int count){
 		this.head=head;
 		this.number=number;
