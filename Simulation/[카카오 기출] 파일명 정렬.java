@@ -12,6 +12,7 @@ public class Main {
 		
 		st=new StringTokenizer(br.readLine(),"[“”,]");
 		files=new LinkedList<File>();
+		int count=0;
 		while(st.hasMoreTokens()) {
 			String file=st.nextToken();
 			if(file.equals(" "))
@@ -44,7 +45,8 @@ public class Main {
 				}
 			}
 			
-			files.add(new File(head,number,tail));
+			count++;
+			files.add(new File(head,number,tail,count));
 		}
 		
 		Collections.sort(files);
@@ -59,10 +61,12 @@ class File implements Comparable<File>{
 	String head;
 	String number;
 	String tail;
-	File(String head,String number,String tail){
+	int count;//안정정렬을 위한 변수
+	File(String head,String number,String tail,int count){
 		this.head=head;
 		this.number=number;
 		this.tail=tail;
+		this.count=count;
 	}
 	
 	@Override
@@ -96,7 +100,10 @@ class File implements Comparable<File>{
 				}
 			}
 			
-			return This-That;
+			if(This!=That)
+				return This-That;
+			else
+				return this.count-o.count;
 		}
 	}
 }
