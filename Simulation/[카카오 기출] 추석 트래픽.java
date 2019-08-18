@@ -1,7 +1,7 @@
 /* http://tech.kakao.com/2017/09/27/kakao-blind-recruitment-round-1/ */
-//시작점을 기준으로 정렬 -> 뒤에있는 것들과 비교하면서 count (기준점의 end ~ 기준점의 end+999 사이에 있는 것을 count)
 
 import java.util.*;
+
 import java.io.*;
 
 public class Main {
@@ -10,7 +10,7 @@ public class Main {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		
-		StringTokenizer st=new StringTokenizer(br.readLine(),"[¡°¡±,] s");
+		StringTokenizer st=new StringTokenizer(br.readLine(),"[“”,] s");
 		logs=new ArrayList<Log>();
 		while(st.hasMoreTokens()) {
 			int endTime=0;
@@ -36,35 +36,28 @@ public class Main {
 			logs.add(new Log(endTime-sec+1,endTime));
 		}
 		
-		Collections.sort(logs,new Comparator<Log>() {
-
-			@Override
-			public int compare(Log o1, Log o2) {
-				// TODO Auto-generated method stub
-				return o1.start-o2.start;
-			}
-			
-		});
-		
 		System.out.println(getMax());
 	}
 	
 	public static int getMax() {
-		int result=0;
-		
-		for(int i=0;i<logs.size();i++) {
-			int num=1;
-			int exitTime=logs.get(i).end;
-			for(int j=i+1;j<logs.size();j++) {
-				int start=logs.get(j).start;
-				int end=logs.get(j).end;
-				if(start<=exitTime+999&&exitTime<=end)
-					num++;
-			}
-			result=Math.max(result, num);
-		}
-		
-		return result;
+		 int maxCnt = 0; // 최대값
+	        for(Log sourceVo : logs) {
+	            long startDtm = sourceVo.start; // 시작시각
+	            long endedDtm = sourceVo.end; // 종료시각
+	            int startCnt = 0; // 현재 로그 시작구간에서 실행중이 트랜젝션 갯수
+	            int endedCnt = 0; // 현재 로그 종료구간에서 실행중이 트랜젝션 갯수
+	            for(Log targetVo : logs) {
+	                if(startDtm <= targetVo.end && targetVo.start <=startDtm + 999) {
+	                    startCnt++;
+	                }
+	                if(endedDtm <= targetVo.end && targetVo.start <= endedDtm + 999) {
+	                    endedCnt++;
+	                }
+	            }
+	            maxCnt = Math.max(maxCnt, startCnt);
+	            maxCnt = Math.max(maxCnt, endedCnt);
+	        }
+	        return maxCnt;
 	}
 	
 	public static int hourToMili(String time) {
