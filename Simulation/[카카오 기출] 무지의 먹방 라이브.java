@@ -1,5 +1,5 @@
 /* http://tech.kakao.com/2018/09/21/kakao-blind-recruitment-for2019-round-1/ */
-//ºÒÇÊ¿äÇÑ ¿¬»êÀ» ÁÙÀÏ °Í.
+//ë¶ˆí•„ìš”í•œ ì—°ì‚° ì¤„ì´ê¸°
 
 import java.util.*;
 import java.io.*;
