@@ -1,5 +1,5 @@
 /* https://www.acmicpc.net/problem/2252 */
-//순서 찾는 문제 -> 위상정렬 고려해보기
+//순서의 조합으로 전체 순서를 찾는 문제 -> 위상정렬
 
 import java.util.*;
 import java.io.*;
