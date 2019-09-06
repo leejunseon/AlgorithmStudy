@@ -1,4 +1,8 @@
 /* https://programmers.co.kr/learn/courses/30/lessons/42577# */
+//사전순으로 배열
+//첫번째 요소부터 size-1번째 요소까지 차례로 탐색하면서
+//다음요소보다 길이가 작을 경우 -> 다음 요소가 현재요소로 시작되는 문자열인지 파악 (접두사인지 파악하는 과정)
+//접두사 확인되면 break, false 반환
 
 import java.util.*;
 
