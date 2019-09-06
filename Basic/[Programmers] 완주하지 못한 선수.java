@@ -1,5 +1,5 @@
 /* https://programmers.co.kr/learn/courses/30/lessons/42576 */
-//�ؽ� ���
+//HashMap통해 참가인원 파악 -> 완주인원 빼고 남은인원 = answer
 
 import java.util.*;
 
