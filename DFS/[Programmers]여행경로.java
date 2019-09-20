@@ -22,8 +22,6 @@ public class Solution {
 
 	public static String[] solution(String[][] tickets) {
         String[] answer = {};
-
-        //그래프로 만들기
         map=new HashMap<String,Integer>();
         int value=0;
         for(int i=0;i<tickets.length;i++) {
@@ -40,7 +38,6 @@ public class Solution {
         for(int i=0;i<tickets.length;i++) {
         	Graph.get(map.get(tickets[i][0])).add(new Place(tickets[i][1]));
         }
-        //알파벳 순으로 정렬
         for(int i=0;i<Graph.size();i++) {
         	Collections.sort(Graph.get(i),new Comparator<Place>() {
 
@@ -65,9 +62,12 @@ public class Solution {
     }
 
 	public static void start(String Now,int remain,List<String> route) {
+		if(flag)
+			return;
+
 		int now=map.get(Now);
 
-		if(remain==0&&!flag) {
+		if(remain==0) {
 			result=new ArrayList<String>(route);
 			flag=true;
 			return;
