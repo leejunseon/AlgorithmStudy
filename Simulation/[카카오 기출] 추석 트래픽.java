@@ -1,18 +1,28 @@
 /* http://tech.kakao.com/2017/09/27/kakao-blind-recruitment-round-1/ */
 
-import java.util.*;
+//끝지점으로 정렬되어있는 상태
+//logs첫 요소부터 끝 요소까지
+//그다음 요소들 중 start지점 겹친 부분, end지점 겹친 부분 중 max값이
+//log 중첩된 부분
 
+import java.util.*;
 import java.io.*;
 
-public class Main {
+public class Solution {
 	public static List<Log> logs;
-	
+
 	public static void main(String[] args) throws IOException{
-		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-		
-		StringTokenizer st=new StringTokenizer(br.readLine(),"[“”,] s");
+		String[] lines= {"2016-09-15 01:00:04.001 2.0s",
+						"2016-09-15 01:00:07.000 2s"};
+
+		System.out.println(solution(lines));
+	}
+
+	public static int solution(String[] lines) {
+		StringTokenizer st;
 		logs=new ArrayList<Log>();
-		while(st.hasMoreTokens()) {
+		for(int j=0;j<lines.length;j++) {
+			st=new StringTokenizer(lines[j]);
 			int endTime=0;
 			int sec=0;
 			for(int i=0;i<3;i++) {
@@ -35,10 +45,10 @@ public class Main {
 			}
 			logs.add(new Log(endTime-sec+1,endTime));
 		}
-		
-		System.out.println(getMax());
+
+		return getMax();
 	}
-	
+
 	public static int getMax() {
 		 int maxCnt = 0; // 최대값
 	        for(Log sourceVo : logs) {
@@ -59,7 +69,7 @@ public class Main {
 	        }
 	        return maxCnt;
 	}
-	
+
 	public static int hourToMili(String time) {
 		int miliSec=0;
 		StringTokenizer st=new StringTokenizer(time,":.");
@@ -83,7 +93,7 @@ public class Main {
 				break;
 			}
 		}
-		
+
 		return miliSec;
 	}
 }
