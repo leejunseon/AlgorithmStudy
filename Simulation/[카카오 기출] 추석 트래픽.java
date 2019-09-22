@@ -1,4 +1,4 @@
-/* http://tech.kakao.com/2017/09/27/kakao-blind-recruitment-round-1/ */
+/* https://programmers.co.kr/learn/courses/30/lessons/17676 */
 
 //끝지점으로 정렬되어있는 상태
 //logs첫 요소부터 끝 요소까지
