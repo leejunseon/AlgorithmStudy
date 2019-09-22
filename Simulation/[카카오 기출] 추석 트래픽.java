@@ -1,9 +1,10 @@
 /* https://programmers.co.kr/learn/courses/30/lessons/17676 */
 
 //끝지점으로 정렬되어있는 상태
-//logs첫 요소부터 끝 요소까지
-//그다음 요소들 중 start지점 겹친 부분, end지점 겹친 부분 중 max값이
-//log 중첩된 부분
+//logs첫 요소부터 끝 요소까지 돌면서
+//해당 요소와 그다음 요소들 중 start지점 겹친 부분, end지점 겹친 부분 중
+//max값이 log 중첩된 부분
+//전체 max값 리턴
 
 import java.util.*;
 import java.io.*;
