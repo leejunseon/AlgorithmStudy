@@ -1,8 +1,10 @@
 /* https://programmers.co.kr/learn/courses/30/lessons/42746 */
 //String을 사전순으로 내림차순 sorting
 //sorting시 두 문자열의 접두사 길이가 두 문자열 중 짧은 문자열과 같을 때는
-//순서를 다르게 이어붙인 두 문자열의 내림차순
+//순서를 다르게 이어붙인 두 문자열의 내림차순 return
 //"0000..."일 시 예외처리
+
+//sorting할 때 두 문자열 순서 다르게 이어붙인 것만 비교 후 내림차순 return해도 문제 풀림.
 
 import java.util.*;
 
