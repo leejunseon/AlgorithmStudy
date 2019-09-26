@@ -6,6 +6,15 @@
 //작다면 answer+1을 못만드므로
 //답은 answer+1이 됨.
 
+//weight 정렬 후 = {1,1,2,3,6,7,30}
+//answer=0, weight[0]=1 -> 1까지 만들수있음
+//answer=1, weight[1]=1 -> 2까지 만들수있음
+//answer=2, weight[2]=2 -> 4까지 만들 수 있음
+//answer=4, weight[3]=3 -> 7까지 만들 수 있음
+//answer=7, weight[4]=6 -> 13까지 만들 수 있음
+//answer=13, weight[5]=7 -> 20까지 만들 수 있음
+//answer=20, weight[6]=30 -> 21을 만들 수 없음. weight[6]이 21보다 작거나 같아야 함.
+
 //알고보면 간단한 문제지만 아이디어를 떠올리기가 힘듦
 
 import java.util.*;
