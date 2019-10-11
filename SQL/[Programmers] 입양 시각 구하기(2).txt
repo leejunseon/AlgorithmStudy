@@ -1,0 +1,13 @@
+/* https://programmers.co.kr/learn/courses/30/lessons/59413 */
+//@hour 변수 지정 후
+//1씩 증가시키면서
+//datetime의 시간이 @hour인 row 갯수 select
+
+set @hour=-1;
+select
+    @hour:=@hour+1,
+    (select count(datetime)
+    from animal_outs
+    where hour(datetime)=@hour)
+from animal_outs
+where @hour<23
