@@ -1,72 +1,116 @@
-/* http://tech.kakao.com/2017/09/27/kakao-blind-recruitment-round-1/ */
+/* https://programmers.co.kr/learn/courses/30/lessons/17677 */
+//Multiset의 합집합, 교집합 구현
 
 import java.util.*;
 import java.io.*;
 
-public class Main {
-	public static void main(String[] args) throws IOException{
-		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-		
-		String str1=br.readLine().toLowerCase();
-		String str2=br.readLine().toLowerCase();
-		
-		List<String> whole=new ArrayList<String>();
-		
+public class Solution {
+	public static void main(String[] args) {
+		Solution sol=new Solution();
+
+		String str1="aa1+aa2";
+		String str2="AAAA12";
+
+		System.out.println(sol.solution(str1,str2));
+	}
+
+	public int solution(String str1, String str2) {
 		List<String> one=new ArrayList<String>();
-		for(int i=0;i<str1.length()-1;i++) {
-			String input=str1.substring(i,i+2);
-			boolean flag=true;
-			for(int j=0;j<2;j++) {
-				char c=input.charAt(j);
-				if(c<97||c>122||c==' ') {
-					flag=false;
-					break;
-				}
-			}
-			if(flag) {
-				one.add(input);
-				whole.add(input);
-			}
-		}
-		
 		List<String> two=new ArrayList<String>();
-		for(int i=0;i<str2.length()-1;i++) {
-			String input=str2.substring(i,i+2);
+
+		str1=str1.toLowerCase();
+		str2=str2.toLowerCase();
+
+		//97 ~ 122
+		for(int i=0;i<str1.length()-1;i++) {
+			String sub=str1.substring(i,i+2);
 			boolean flag=true;
-			for(int j=0;j<2;j++) {
-				char c=input.charAt(j);
-				if(c<97||c>122||c==' ') {
+			for(int j=0;j<sub.length();j++) {
+				char c=sub.charAt(j);
+				if((int)c<97||(int)c>122||c==' ') {
 					flag=false;
 					break;
 				}
 			}
 			if(flag) {
-				two.add(input);
-				whole.add(input);
+				one.add(sub);
 			}
 		}
-		
+
+		for(int i=0;i<str2.length()-1;i++) {
+			String sub=str2.substring(i,i+2);
+			boolean flag=true;
+			for(int j=0;j<sub.length();j++) {
+				char c=sub.charAt(j);
+				if((int)c<97||(int)c>122||c==' ') {
+					flag=false;
+					break;
+				}
+			}
+			if(flag)
+				two.add(sub);
+		}
+
 		if(one.size()==0&&two.size()==0)
-			System.out.println(65536);
-		else {
-			//교집합
-			List<String> a=new ArrayList<String>();
-			List<String> b=new ArrayList<String>();
-			a.addAll(one);
-			b.addAll(two);
-			a.retainAll(b);
-			int gyo=a.size();
-			//합집합
-			for(String s:a) {
-				if(one.contains(s))
-					one.remove(s);
-				if(two.contains(s))
-					two.remove(s);
+			return 65536;
+
+		int hap=getHap(one,two);
+		int gyo=getGyo(one,two);
+
+		return (int)Math.floor((double)gyo/hap*65536);
+	}
+
+	public int getHap(List<String> one,List<String> two) {
+		List<String> hap=new ArrayList<String>();
+
+		Collections.sort(one);
+		Collections.sort(two);
+		Queue<String> o=new LinkedList<String>(one);
+		Queue<String> t=new LinkedList<String>(two);
+
+		while(!o.isEmpty()||!t.isEmpty()) {
+			if(o.isEmpty()) {
+				hap.addAll(t);
+				t.clear();
+			}else if(t.isEmpty()) {
+				hap.addAll(o);
+				o.clear();
+			}else {
+				if(o.peek().equals(t.peek())) {
+					hap.add(o.remove());
+					t.remove();
+				}else {
+					if(o.peek().compareTo(t.peek())<0) {
+						hap.add(o.remove());
+					}else
+						hap.add(t.remove());
+				}
 			}
-			int hap=gyo+one.size()+two.size();
-			//
-			double result=(double)gyo/(double)hap;
-			System.out.println((int)Math.floor(result*65536));
 		}
+
+		return hap.size();
+	}
+
+	public int getGyo(List<String> one,List<String> two) {
+		List<String> hap=new ArrayList<String>();
+
+		Collections.sort(one);
+		Collections.sort(two);
+		Queue<String> o=new LinkedList<String>(one);
+		Queue<String> t=new LinkedList<String>(two);
+
+		while(!o.isEmpty()&&!t.isEmpty()) {
+			if(o.peek().equals(t.peek())) {
+				hap.add(o.remove());
+				t.remove();
+			}else {
+				if(o.peek().compareTo(t.peek())<0) {
+					o.remove();
+				}else
+					t.remove();
+			}
+		}
+
+		return hap.size();
 	}
 }

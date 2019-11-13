@@ -1,35 +1,33 @@
-/* http://tech.kakao.com/2017/09/27/kakao-blind-recruitment-round-1/ */
+/* https://programmers.co.kr/learn/courses/30/lessons/17679 */
 
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class Solution {
 	public static int m;
 	public static int n;
 	public static Pair[][] map;
-	
-	public static void main(String[] args) throws IOException{
-		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st;
-		
-		st=new StringTokenizer(br.readLine());
-		m=Integer.parseInt(st.nextToken());
-		n=Integer.parseInt(st.nextToken());
+
+	public static void main(String[] args) {
+		String[] board={"CCBDE", "AAADE", "AAABF", "CCBBF"};
+		System.out.println(solution(4,5,board));
+	}
+
+	public static int solution(int M, int N, String[] board) {
+		m=M;
+		n=N;
 		map=new Pair[m][n];
-		st=new StringTokenizer(br.readLine(),"[¡°¡±, ]");
 		for(int i=0;i<m;i++) {
-			String input=st.nextToken();
 			for(int j=0;j<n;j++) {
-				map[i][j]=new Pair(input.charAt(j),false);
+				map[i][j]=new Pair(board[i].charAt(j),false);
 			}
 		}
-		
-		System.out.println(simulate());
+	      return simulate();
 	}
-	
+
 	public static int simulate() {
 		int result=0;
-		
+
 		while(true) {
 			int add=removeBlock();
 			if(add==0)
@@ -39,10 +37,10 @@ public class Main {
 			down();
 			update();
 		}
-		
+
 		return result;
 	}
-	
+
 	public static int removeBlock() {
 		int result=0;
 		for(int i=0;i<m-1;i++) {
@@ -71,14 +69,14 @@ public class Main {
 		}
 		return result;
 	}
-	
+
 	public static void down() {
 		for(int i=m-1;i>=0;i--) {
 			for(int j=0;j<n;j++) {
 				if(map[i][j].remove==false) {
 					int nexty=i;
 					for(int k=i+1;k<m;k++) {
-						if(map[k][j].remove==true) 
+						if(map[k][j].remove==true)
 							nexty++;
 						else
 							break;
@@ -91,7 +89,7 @@ public class Main {
 			}
 		}
 	}
-	
+
 	public static void update() {
 		for(int i=0;i<m;i++) {
 			for(int j=0;j<n;j++) {
@@ -110,7 +108,7 @@ class Pair implements Cloneable{
 		this.c=c;
 		this.remove=remove;
 	}
-	
+
 	@Override
 	public Pair clone() {
 		return new Pair(this.c,this.remove);
